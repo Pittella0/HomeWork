@@ -1,0 +1,190 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyPbpo7dtzkRxU88tChn5tnw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Pittella0/HomeWork/blob/main/HW4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Software company sells item at $99. discounts per bulk\n",
+        "\n",
+        "\n",
+        "*10-19* = 10%\n",
+        "\n",
+        "*20-49* = 20%\n",
+        "\n",
+        "*50-99* = 30%\n",
+        "\n",
+        "*100-more* = 40%\n",
+        "\n",
+        "program that asks user input number of packages.\n",
+        "\n",
+        "-Needs to display discount if applicble\n",
+        " \n",
+        "-total amount after discount "
+      ],
+      "metadata": {
+        "id": "eWegDAkIKJVz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def bulk_discount(num):\n",
+        "  # amount of product\n",
+        "  item_ = 99\n",
+        "\n",
+        "  #has discount?\n",
+        "  discount = False\n",
+        "\n",
+        "  #10-19 = 10%\n",
+        "  if num >= 10 and num <= 19:\n",
+        "    disc = .1\n",
+        "    price = (item_ * num) * disc\n",
+        "    discount = True\n",
+        "\n",
+        "  #20-49 = 20%\n",
+        "  elif num >= 20 and num <= 49:\n",
+        "    disc = .2\n",
+        "    price = (item_ * num) * disc\n",
+        "    discount = True\n",
+        "\n",
+        "  #50-99 = 30%\n",
+        "  elif num >= 50 and num <= 99:\n",
+        "    disc = .3\n",
+        "    price = (item_ * num) * disc\n",
+        "    discount = True\n",
+        "\n",
+        "  #100-more = 40%\n",
+        "  elif num >= 100:\n",
+        "    disc = .4\n",
+        "    price = (item_ * num) * disc\n",
+        "    discount = True\n",
+        "  #else no discount\n",
+        "\n",
+        "  if discount == True:\n",
+        "    print(f\"Cool, a discount of {disc} was applied for a total of ${price}\")\n",
+        "  else:\n",
+        "    print(f\"No discount, total is ${num*item_}\")\n",
+        "\n",
+        "    \n",
+        "if __name__ == \"__main__\":\n",
+        "  #input\n",
+        "  num = int(input(\"Enter the amount of softwear purchesed.  \"))\n",
+        "  \n",
+        "  #output rounded to 2 decimals for curency\n",
+        "  bulk_discount(num)\n",
+        "  \n",
+        "  "
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Rv9kLh6rLT61",
+        "outputId": "1df9e7ce-eb07-498f-e551-f35ad2062aec"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the amount of softwear purchesed.  52\n",
+            "Cool, a discount of 0.3 was applied for a total of $1544.3999999999999\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "AqTtPj4MRWOV"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def weight_package(num):\n",
+        "  # num <= 2 --- 1.50\n",
+        "  if num <= 2:\n",
+        "    price_per = 1.50\n",
+        "    total_ = (num * price_per) \n",
+        "    return total_, price_per\n",
+        "\n",
+        "  # num > 2 num <= 6 ---3.0\n",
+        "  if num > 2 and num <= 6:\n",
+        "    price_per = 3.0\n",
+        "    total_ = (num * price_per) \n",
+        "    return total_, price_per\n",
+        "\n",
+        "  # num > 6 num <= 10 ---4.0\n",
+        "  if num > 6 and num <= 10:\n",
+        "    price_per = 4.0\n",
+        "    total_ = (num * price_per) \n",
+        "    return total_, price_per\n",
+        "\n",
+        "  # num > 10 -- 4.75\n",
+        "  if num > 10:\n",
+        "    price_per = 4.75\n",
+        "    total_ = (num * price_per) \n",
+        "    return total_, price_per\n",
+        "    \n",
+        "if __name__ == \"__main__\":\n",
+        "  #input\n",
+        "  num = int(input(\"Enter weight of package.  \"))\n",
+        "  \n",
+        "  #output \n",
+        "  print(f\" Price to ship: ${weight_package(num)[0]}\\n Rate per pound: ${weight_package(num)[1]}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "06ZXJfzFUdSF",
+        "outputId": "9b111055-ae86-4f2d-ef22-ea4825b0f942"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter weight of package.  8\n",
+            " Price to ship: $32.0\n",
+            " Rate per pound: $4.0\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
